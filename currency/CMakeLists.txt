@@ -3,9 +3,11 @@ project(currency)
 
 set(CMAKE_CXX_STANDARD 17)
 file(GLOB SRC "src/*.cc")
+file(GLOB HPP "src/*.hpp")
 
 add_library(
     ${PROJECT_NAME} STATIC
     ${SRC}
+    ${HPP}
 )
 target_include_directories(${PROJECT_NAME} PUBLIC include)

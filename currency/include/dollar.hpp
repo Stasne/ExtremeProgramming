@@ -1,22 +1,18 @@
 #ifndef __DOLLAR_H__
 #define __DOLLAR_H__
-
-class Dollar
+#include "money.hpp"
+class Dollar : public Money
 {
 public:
-    Dollar() = default;
-    Dollar(int val);
-    int     amount() const;
-    void    times(int val);
-    Dollar& operator=(int val);
-    bool    operator==(const Dollar& rhs) const { return amount_ == rhs.amount_; }
-    bool    operator!=(const Dollar& rhs) const { return amount_ != rhs.amount_; }
+    Dollar(int val = 0);
+    bool operator==(const Dollar& rhs) const { return Money::operator==(rhs); }
 
-    friend bool operator==(const Dollar& lhs, int rhs) { return lhs.amount() == rhs; }
-    friend bool operator!=(const Dollar& lhs, int rhs) { return lhs.amount() != rhs; }
+    bool operator!=(const Dollar& rhs) const { return amount_ != rhs.amount_; }
 
-private:
-    int amount_{ 0 };
+    template <typename T>
+    bool operator==(const T& rhs) const { return false; }
+    template <typename T>
+    bool operator!=(const T& rhs) const { return true; }
 };
 
 #endif
