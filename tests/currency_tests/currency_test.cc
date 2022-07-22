@@ -11,3 +11,15 @@ TEST(currency_test, BasicObjectTest)
     five.times(2);
     EXPECT_EQ(10, five.amount());
 }
+
+TEST(currency_test, EqualityTest)
+{
+    Dollar five(5);
+    Dollar five2(5);
+    Dollar notFive(2);
+    Dollar empty;
+    EXPECT_EQ(five, five2);
+    EXPECT_EQ(empty, 0);
+    EXPECT_NE(five, notFive);
+    EXPECT_NE(five, empty);
+}
