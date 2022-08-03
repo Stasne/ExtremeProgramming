@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 add_subdirectory(currency)
 
 # if testing ENABLED
+set(TESTS "")
+
 if(DEFINED TESTS)
     include(FetchContent)
     FetchContent_Declare(
